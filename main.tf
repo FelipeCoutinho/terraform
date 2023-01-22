@@ -56,9 +56,8 @@ resource "aws_instance" "dev5" {
 }
 
 
-//Maquina em outra região
-// Atrelada ao dynamoDb
-resource "aws_instance" "dev6" {
+//Maquina em outra região atrelada ao dynamoDb
+resource "aws_instance" "ev6" {
   provider = "aws.us-east-2"
   ami = "ami-03cf1a25c0360a382" //Microsoft Windows Server 2022 Full Locale English AMI provided by Amazon
   instance_type = "t2.micro"
@@ -69,7 +68,7 @@ resource "aws_instance" "dev6" {
   vpc_security_group_ids = [ "sg-05de27f1ea1285e6c" ]
 }
 
-#   // na aws o bucket é multiregional não especificamos em qual região ele vai ser criado
+#   // Na aws o bucket é multiregional não especificamos em qual região ele vai ser criado
 resource "aws_s3_bucket" "dev4" {
   bucket = "bkt-dev4"
   acl    = "private"
